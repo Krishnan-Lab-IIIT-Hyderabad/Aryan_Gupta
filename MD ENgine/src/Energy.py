@@ -13,16 +13,11 @@ def pe_sys(X):
     te = 0
     for l in X:
         te += pe(np.sqrt(np.sum((X-l)**2)))
-    return te
-
+    return te*0.5
 
 # Force calculations from PE
 x = symbols('x')
 f = pe(x)
 force = diff(f, x)
-For = lambdify(x, force)
-
-def F(x):
-    return For(x)
-
+F = lambdify(x, force)
 

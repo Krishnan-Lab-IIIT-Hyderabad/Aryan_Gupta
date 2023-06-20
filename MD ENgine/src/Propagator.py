@@ -3,7 +3,6 @@ import Box
 from PBC import pbc 
 from Energy import pe_sys, ke_sys, F
 import matplotlib.pyplot as plt
-from sympy import symbols, diff, lambdify
 
 
 class Propagator:
@@ -50,7 +49,7 @@ class Propagator:
             acc+=acc2
             V += 0.5*acc*t
             acc = acc2
-            #thermostat(V,t,sigma,nu,ke_T,tau)
+            thermostat(V,t,sigma,nu,ke_T,tau)
             pbc(X,V,L)   
         self.H = KE + PE
         self.KE = KE
@@ -65,12 +64,14 @@ class Propagator:
         x1 = np.linspace(0, 1, self.s)
         plt.plot(x1, self.PLTV,color='red')
         plt.plot(x1, self.PLTX)
+        plt.savefig('0th.png')
 
     def plot(self):
         x1 = np.linspace(0, 1, self.s)
         plt.plot(x1, self.H,color='green')
         plt.plot(x1, self.PE,color='purple')
         plt.plot(x1, self.KE, color='red')   
+        plt.savefig('energy.png')
 
 
 def createSim(s,t):

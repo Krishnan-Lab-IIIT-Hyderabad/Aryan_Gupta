@@ -17,3 +17,5 @@ def Berendsen(V,t,sigma,nu,ke_T,tau):
     V *= v_scale
     V -= np.mean(V)
 
+def Non(V,t,sigma,nu,ke_T,tau):
+    return 0
