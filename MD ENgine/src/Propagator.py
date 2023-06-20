@@ -68,9 +68,9 @@ class Propagator:
 
     def plot(self):
         x1 = np.linspace(0, 1, self.s)
-        plt.plot(x1, self.H,color='green')
+        #plt.plot(x1, self.H,color='green')
         plt.plot(x1, self.PE,color='purple')
-        plt.plot(x1, self.KE, color='red')   
+        #plt.plot(x1, self.KE, color='red')   
         plt.savefig('energy.png')
 
 
