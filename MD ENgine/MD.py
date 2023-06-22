@@ -15,7 +15,7 @@ from REMD import createREMD
 particles = Box.createBox(10,6)  # n,L
 # sim = Propagator.createSim(1000, 0.01) # s, t
 p2 = Box.createBox(particles.n,particles.L)
-remd = REMD.createREMD(10000,0.01) 
+remd = REMD.createREMD(100,0.01) 
 
 # Calculate some sigma for Anderson, sigma = square root of KbT
 # sim.sigma = 0.1*np.sqrt((pe_sys(particles.X)*2)/9)
@@ -35,6 +35,8 @@ remd.tau = 1.1*remd.tau
 
 # Run Minimisation 
 #j,pefound = minisation(sim,particles)
+j,pefound,X = minisation(remd,particles)
+particles.update(X,particles.V)
 
 
 # Run simulation 

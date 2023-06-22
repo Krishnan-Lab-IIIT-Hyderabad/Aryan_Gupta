@@ -6,7 +6,9 @@ from autograd import grad
 
 k = 0.1
 def pe(x):
-    return 0.5*k*x*x
+#     return 0.5*k*x*x
+    return 5*x*x*x*x - 2*x*x
+
 
 #Force calculations from PE
 x = symbols('x')

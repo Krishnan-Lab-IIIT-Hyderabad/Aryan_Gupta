@@ -20,7 +20,7 @@ def minisation(sim,particles):
         for j in range(1,s):
             PE[j] = pe_sys(X)
             if(PE[j] > PE[j-1]):
-                return j,PE[j-1]
+                return j,PE[j-1],X
             X += t*V + 0.5*t*t*acc
             acc2 = np.zeros((n,3))
             for l in X:
