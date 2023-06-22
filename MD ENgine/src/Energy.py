@@ -4,30 +4,30 @@ import math
 import autograd.numpy as np
 from autograd import grad
 
-#k = 0.1
-# def pe(x):
-#     return 0.5*k*x*x
+k = 0.1
+def pe(x):
+    return 0.5*k*x*x
 
 #Force calculations from PE
-# x = symbols('x')
-# f = pe(x)
-# force = diff(f, x)
-# Forc = lambdify(x, force)
+x = symbols('x')
+f = pe(x)
+force = diff(f, x)
+F = lambdify(x, force)
 
-def pe(x):
-    if x <= -1.25:
-        return 4*np.pi**2*(x+1.25)**2
-    if x > -1.25 and x <= -0.25:
-        return 2*(1+np.sin(2*np.pi*x))
-    if x > -0.25 and x <= 0.75:
-        return 3*(1+np.sin(2*np.pi*x))
-    if x > 0.75 and x <= 1.75: 
-        return 4*(1+np.sin(2*np.pi*x))
-    if x > 1.75: 
-        return 8*np.pi**2*(x-1.75)**2
+# def pe(x):
+#     if x <= -1.25:
+#         return 4*np.pi**2*(x+1.25)**2
+#     if x > -1.25 and x <= -0.25:
+#         return 2*(1+np.sin(2*np.pi*x))
+#     if x > -0.25 and x <= 0.75:
+#         return 3*(1+np.sin(2*np.pi*x))
+#     if x > 0.75 and x <= 1.75: 
+#         return 4*(1+np.sin(2*np.pi*x))
+#     if x > 1.75: 
+#         return 8*np.pi**2*(x-1.75)**2
     
-Forc = grad(pe)
-F = np.vectorize(Forc)
+# Forc = grad(pe)
+# F = np.vectorize(Forc)
 
 
 def ke_sys(V):

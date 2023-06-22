@@ -65,6 +65,7 @@ class Propagator:
         plt.plot(x1, self.PLTV,color='red')
         plt.plot(x1, self.PLTX)
         plt.savefig('0th.png')
+        plt.close()
 
     def plot(self):
         x1 = np.linspace(0, 1, self.s)
@@ -72,12 +73,14 @@ class Propagator:
         plt.plot(x1, self.PE,color='purple')
         plt.plot(x1, self.KE, color='red')   
         plt.savefig('energy.png')
+        plt.close()
 
     def plotMin(self,j,minE):
         x1 = np.linspace(0, 1, self.s)
         plt.plot(x1, self.PE,color='purple')
         plt.plot(j, minE,'ro')   
         plt.savefig('Minenergy.png')
+        plt.close()
 
 
 def createSim(s,t):
